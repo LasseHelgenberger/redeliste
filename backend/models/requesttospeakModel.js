@@ -8,14 +8,14 @@ const RequestToSpeak = db.define('requesttospeak', {
         type: DataTypes.STRING,
         primaryKey: true
     },
-    uid:{
+    user:{
         type: DataTypes.STRING
     },
     createdAt:{
-        type: DataTypes.STRING
+        type: DataTypes.JSON
     },
     updatedAt:{
-        type: DataTypes.STRING
+        type: DataTypes.JSON
     },
     request:{
         type: DataTypes.STRING

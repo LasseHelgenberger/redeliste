@@ -1,21 +1,23 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import RequestToSpeakList from "./components/RequestToSpeakList";
-import AddRequestToSpeak from "./components/AddRequestToSpeak";
-import EditRequestToSpeak from "./components/EditRequestToSpeak";
+import LoginPage from "./components/LoginPage";
+import MenuBar from "./components/MenuBar";
 
 function App() {
+
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+  
   return (
     <Router>
-      <div className="container">
-        <div className="columns">
-          <div className="column is-half is-offset-one-quarter">
-            <Routes>
+      <div className="wrapper">
+        <MenuBar />
+          {cookies.user && <Routes>
               <Route exact path="/" element={<RequestToSpeakList />} />
-              <Route path="/add" element={<AddRequestToSpeak />} />
-              <Route path="/edit/:id" element={<EditRequestToSpeak />} />
+              <Route path="/moderator" element={<RequestToSpeakList moderator="true" />} />
             </Routes>
-          </div>
-        </div>
+          }
+          {!cookies.user && <LoginPage />}
       </div>
     </Router>
   );
