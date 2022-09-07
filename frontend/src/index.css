@@ -60,6 +60,11 @@ h1 {
   background-color:#003b6b;
 }
 
+.loginBtn:active {
+  background-color: #f3712a;
+  color: #003b6b;
+}
+
 .logoutBtn {
   font-size:70%;
   font-weight: 600;
@@ -69,6 +74,10 @@ h1 {
   margin: 5px;
   background-color: #002646;
   color: #f3712a;
+}
+
+.logoutBtn:active {
+  background-color: #003b6b;
 }
 
 .newBtn {
@@ -86,6 +95,10 @@ h1 {
   float: right;
 }
 
+.newBtn:active {
+  background-color: #003b6b;
+}
+
 .deleteAllBtn {
   background-color: #002646;
   color: #f3712a;
@@ -96,6 +109,10 @@ h1 {
   padding: 20px;
   margin-right: 30px;
   float: right;
+}
+
+.deleteAllBtn:active {
+  background-color: #003b6b;
 }
 
 .rActive {
@@ -166,12 +183,24 @@ h1 {
   color: #f3712a;
 }
 
+.cancelBtn:active {
+  background-color: #f3712a;
+  color: #003b6b;
+}
+
 .deleteBtn {
   background-color: #003b6b;
-  color: #001629;
+}
+
+.deleteBtn:active {
+  background-color: #002646;
 }
 
 .respondBtn {
   background-color: #003b6b;
   color: #f3712a;
+}
+
+.respondBtn:active {
+  background-color: #002646;
 }
