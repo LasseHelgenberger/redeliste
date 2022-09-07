@@ -20,19 +20,19 @@ const ResponseList = (parameters) => {
     }, [])
 
     const getResponses = async () => {
-        const response = await axios.get(`http://localhost:5000/requesttospeak/responses/${parameters.id}`);
+        const response = await axios.get(`http://redeliste.evjugendpreetz.de:5000/requesttospeak/responses/${parameters.id}`);
         setResponses(response.data);
     }
 
     const deleteResponse = async (id) => {
-        await axios.patch(`http://localhost:5000/requesttospeak/${id}`, {
+        await axios.patch(`http://redeliste.evjugendpreetz.de:5000/requesttospeak/${id}`, {
             state: "deleted"
         });
         getResponses();
     }
 
     const cancelResponse = async (id) => {
-        await axios.patch(`http://localhost:5000/requesttospeak/${id}`, {
+        await axios.patch(`http://redeliste.evjugendpreetz.de:5000/requesttospeak/${id}`, {
             state: "canceled"
         });
         getResponses();

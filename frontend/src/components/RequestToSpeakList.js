@@ -21,7 +21,7 @@ const RequestToSpeakList = (parameters) => {
     }, [])
 
     const getRequestsToSpeak = async () => {
-        const response = await axios.get('http://localhost:5000/requesttospeak/activenew/');
+        const response = await axios.get('http://redeliste.evjugendpreetz.de:5000/requesttospeak/activenew/');
         setRequeststospeak(response.data);
     }
 
@@ -34,9 +34,9 @@ const RequestToSpeakList = (parameters) => {
     }
 
     const deleteRequesttospeak = async (id) => {
-        const response = await axios.get(`http://localhost:5000/requesttospeak/responses/${id}`);
+        const response = await axios.get(`http://redeliste.evjugendpreetz.de:5000/requesttospeak/responses/${id}`);
         if(response.data.length == 0) {
-            await axios.patch(`http://localhost:5000/requesttospeak/${id}`, {
+            await axios.patch(`http://redeliste.evjugendpreetz.de:5000/requesttospeak/${id}`, {
                 state: "deleted"
             });
             getRequestsToSpeak();
@@ -46,7 +46,7 @@ const RequestToSpeakList = (parameters) => {
     }
 
     const cancelRequestToSpeak = async (id) => {
-        await axios.patch(`http://localhost:5000/requesttospeak/cancel/${id}`, {
+        await axios.patch(`http://redeliste.evjugendpreetz.de:5000/requesttospeak/cancel/${id}`, {
             state: "canceled"
         });
         getRequestsToSpeak();
@@ -55,7 +55,7 @@ const RequestToSpeakList = (parameters) => {
 
     const respondToRequestToSpeak = async (id) => {
         const currentDate = new Date().getDate();
-        await axios.post("http://localhost:5000/requesttospeak", {
+        await axios.post("http://redeliste.evjugendpreetz.de:5000/requesttospeak", {
             user: cookies.user,
             createdAt: currentDate,
             updatedAt: currentDate,
@@ -68,7 +68,7 @@ const RequestToSpeakList = (parameters) => {
 
     const btnNewRequest = async () => {
         const currentDate = new Date().getDate();
-        await axios.post("http://localhost:5000/requesttospeak", {
+        await axios.post("http://redeliste.evjugendpreetz.de:5000/requesttospeak", {
             user: cookies.user,
             createdAt: currentDate,
             updatedAt: currentDate,
@@ -79,7 +79,7 @@ const RequestToSpeakList = (parameters) => {
     }
 
     const btnNextRequest = async () => {
-        await axios.post("http://localhost:5000/requesttospeak/next", {
+        await axios.post("http://redeliste.evjugendpreetz.de:5000/requesttospeak/next", {
             
         });
         getRequestsToSpeak();
