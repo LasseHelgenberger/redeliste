@@ -8,6 +8,8 @@ function App() {
 
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
   
+  document.title = "Redeliste";
+  
   return (
     <Router>
       <div className="wrapper">
